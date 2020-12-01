@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+    <!-- Tracking by Marker -->
+    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
+    <!-- Tracking by Image -->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+
+
+    <script>
+        AFRAME.registerComponent('videohandler', {
+            init: function () {
+                this.vid = document.querySelector("#vid");
+                this.vid.play();
+            }
+        });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR js</title>
+</head>
+<body>
+    
+    <a-scene
+        arjs
+        embedded
+        renderer='antialias: true; alpha: true; precision: mediump;'
+    >
+
+        <a-assets>
+            <video
+                id="vid"
+                src="qwe.mp4"
+                loop
+                autoplay
+                muted
+            ></video>
+        </a-assets>
+
+        <a-nft videohandler type="nft" url="testnft">
+            <a-video
+                    src="#vid"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                ></a-video>
+        </a-nft>
+
+        <a-entity camera></a-entity>
+    
+    </a-scene>
+  
+</body>
+</html>
